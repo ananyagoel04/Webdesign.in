@@ -10,6 +10,22 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="https://source.unsplash.com/400x400/?website">
+  <script>
+    function search_animal() {
+            let input = document.getElementById('searchbar').value
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('li');
+
+            for (i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = "none";
+                }
+                else {
+                    x[i].style.display = "list-item";
+                }
+            }
+        }
+  </script>
   <title>Sample-Web </title>
 </head>
 
@@ -24,14 +40,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ol class="navbar-nav mr-auto">
-        <li class="nav-item active">
+      <ol class="navbar-nav mr-auto" id='list'>
+        <li class="nav-item active li">
           <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item li">
           <a class="nav-link  " href="about.html">About</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown li">
           <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             More
@@ -44,13 +60,12 @@
             <a class="dropdown-item" href="#">Links</a>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item li">
           <a class="nav-link" href="contact.html">Contact Us</a>
         </li>
       </ol>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+        <input id="searchbar" onkeyup="search_animal()" type="text" name="search" placeholder="Search">
       </form>
       <div class="mx-1">
         <button class="btn btn-danger" onclick="window.print()">Print Page</button>
